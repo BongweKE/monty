@@ -103,3 +103,17 @@ int op_pop(stack_t **head, const int n)
 	}
 	return (n);
 }
+int op_swap(stack_t **head, const int n)
+{
+	int x;
+
+	if (*head == NULL || (*head)->next == NULL)
+	{
+		perror("Error");
+		return (n);
+	}
+	x = (*head)->n;
+	(*head)->n = (*head)->next->n;
+	(*head)->next->n = x;
+	return (n);
+}

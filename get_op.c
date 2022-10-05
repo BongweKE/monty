@@ -14,13 +14,16 @@ int (*get_op_func(char *s))(stack_t **, const int)
 		{"pall", op_pall},
 		{"pint", op_pint},
 		{"pop", op_pop},
+		{"swap", op_swap},
+		{"add", op_add},
+		{"nop", NULL},
 		{NULL, NULL}
 	};
 	int i;
 
 	/* don't check the null since using it with strcmp is byaad */
 	i = 0;
-	while (i < 5)
+	while (ops[i].opcode != NULL)
 	{
 		/* check if our strings match then continue */
 		if (strcmp(ops[i].opcode, s) == 0)

@@ -61,6 +61,10 @@ int op_pint(stack_t **head, const int n);
 
 int op_pop(stack_t **head, const int index);
 
+int op_swap(stack_t **head, const int n);
+
+int op_add(stack_t **head, const int n);
+
 void *op_add_end(stack_t **head, const int n);
 
 void free_all(stack_t *head);
