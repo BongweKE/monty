@@ -1,29 +1,14 @@
 #include "monty.h"
-
-
-/**
- * _atoi - change string to int
- *
- * @string: string to be changed
- *
- * Return: int change of string
- */
-int _atoi(char *string)
-{
-	int result = 0, sign = 1, i = 0;
-
-	if (string[0] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	for (; string[i] != '\0'; i++)
-		result = result * 10 + string[i] - '0';
-	return (sign * result);
-}
-
 /**
  *
+ * main - entry point
+ *
+ * @ac: argument count
+ *
+ * @av: arguments
+ *
+ * Return: 0 on sucess
+ * 
  */
 int main(int ac, char **av)
 {
@@ -35,12 +20,13 @@ int main(int ac, char **av)
 	stack_t *head = NULL;
 
 	i = 0;
-	while (i < 100)
+	/*while (i < 100)
 	{
 		lines[i] = NULL;
 		i++;
 	}
-	i = 0;/* to reuse */
+	i = 0; to reuse */
+	fillwithNull(lines, 100);
 
 	if (ac != 2)
 	{

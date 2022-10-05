@@ -71,4 +71,11 @@ void free_all(stack_t *head);
 
 int (*get_op_func(char *s))(stack_t **, const int);
 
+int _atoi(char *string);
+void fillwithNull(char *lines[], int m);
+void _write_to_STDOUT(char *_input);
+void _iota(int value, char *numberArray);
+int lengthcounter(char *str);
+char *itoa(int val, int base);
+
 #endif /*  MONTY_H */

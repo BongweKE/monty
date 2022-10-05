@@ -12,11 +12,16 @@ int op_pall(stack_t **h, const int n)
 {
 	size_t count = n;
 	stack_t *copy;
+	int value;
+	char *numberArray;
 
 	copy = *h;
 	while (*h)
 	{
-		printf("%d\n", h[0]->n);
+		value = h[0]->n;
+		
+		numberArray = itoa(value, 10);
+		_write_to_STDOUT(numberArray);
 		*h = h[0]->next;
 		count++;
 	}
@@ -63,9 +68,14 @@ int op_push(stack_t **head, const int n)
  */
 int op_pint(stack_t **head, const int n)
 {
+	char *numberArray;
+	int value;
+
 	if (*head == NULL)
 		return (0);
-	printf("%d\n", (*head)->n);
+	value = (*head)->n;
+	numberArray = itoa(value, 10);
+	_write_to_STDOUT(numberArray);
 	return (n);
 }
 /**
