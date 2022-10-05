@@ -77,7 +77,6 @@ int main(int ac, char **av)
 		/* commands will be a temporary array, always reset */
 		space_sep(commands, lines[i]);
 		/* now we have commands */
-		printf("---%s\n", commands[0]);
 		if (commands[1] == NULL)
 		{
 			n = 0;
@@ -86,18 +85,13 @@ int main(int ac, char **av)
 		{
 			n = _atoi(commands[1]);
 		}
-
 		/* /\* null check for the pointer to func result *\/ */
-		/* if (get_op_func(commands[0]) == NULL) */
-		/* { */
-		/* 	printf("Error\n"); */
-		/* 	exit(99); */
-		/* } */
-
-		/* everything seems okay, go ahead */
-		stack_op = get_op_func(commands[0]);
-
-		stack_op(&head, n);
+		if (get_op_func(commands[0]) != NULL)
+		{
+			stack_op = get_op_func(commands[0]);
+			/* everything seems okay, go ahead */
+			stack_op(&head, n);
+		}
 
 		/* for the sake of other iterations */
 		commands[0] = NULL;

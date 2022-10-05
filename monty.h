@@ -57,11 +57,14 @@ int op_pall(stack_t **h, const int n);
 
 int op_push(stack_t **head, const int n);
 
+int op_pint(stack_t **head, const int n); 
+
+int op_pop(stack_t **head, const int index);
+
 void *op_add_end(stack_t **head, const int n);
 
 void free_all(stack_t *head);
 
 int (*get_op_func(char *s))(stack_t **, const int);
-
 
 #endif /*  MONTY_H */

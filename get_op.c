@@ -12,13 +12,15 @@ int (*get_op_func(char *s))(stack_t **, const int)
 	instruction_t ops[] = {
 		{"push", op_push},
 		{"pall", op_pall},
+		{"pint", op_pint},
+		{"pop", op_pop},
 		{NULL, NULL}
 	};
 	int i;
 
 	/* don't check the null since using it with strcmp is byaad */
 	i = 0;
-	while (i < 2)
+	while (i < 5)
 	{
 		/* check if our strings match then continue */
 		if (strcmp(ops[i].opcode, s) == 0)
