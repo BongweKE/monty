@@ -78,4 +78,6 @@ void _iota(int value, char *numberArray);
 int lengthcounter(char *str);
 char *itoa(int val, int base);
 
+char *_strtok(char *s, char d);
+
 #endif /*  MONTY_H */

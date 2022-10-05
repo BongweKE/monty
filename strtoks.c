@@ -20,6 +20,8 @@ void space_sep(char **commands, char *line)
 
 	piece = strtok(line, " ");
 
+	if (piece == NULL)
+		commands[0] = "";
 	while (piece != NULL)
 	{
 		*temp++ = piece;
