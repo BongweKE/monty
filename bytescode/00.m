@@ -1,4 +1,4 @@
 push 78
-push 0
+nop asjdfkl
 push 1000000
 pall

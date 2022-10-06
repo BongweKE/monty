@@ -97,6 +97,8 @@ Quite simple, right?
 
 # Future Changes
 
+- Correct checker errors from alx
+- Find a solution to long line in the header file
 - Automate measurment size of file in case we have long bytecode files instead
 of using random sizes
 - Correct and follow Valgrind errors in `strtok`
