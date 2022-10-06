@@ -55,7 +55,7 @@ void check_pall(stack_t *head, char *commands[], int i, char *buf)
 /**
  * check_pint - check if head is NUll
  * and prints error message to STDERR
- * exit with EXIT_FAILURE 
+ * exit with EXIT_FAILURE
  * @head: head of linked list
  *
  * @commands: command plus action

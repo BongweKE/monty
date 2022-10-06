@@ -1,6 +1,5 @@
 #include "monty.h"
 /**
- *
  * main - entry point
  *
  * @ac: argument count
@@ -38,8 +37,7 @@ int main(int ac, char **av)
 	{
 		space_sep(commands, lines[i]);
 		get_checker(commands[0])(head, commands, i, buf);
-	        n = check_commands_1(commands[1]);
-		
+		n = check_commands_1(commands[1]);
 		if (get_op_func(commands[0]) != NULL)
 			get_op_func(commands[0])(&head, n);
 		else
