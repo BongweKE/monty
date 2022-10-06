@@ -1,5 +1,14 @@
 #include "monty.h"
-
+/**
+ * op_add - add first function with next
+ * saves result on next node and pops first
+ *
+ * @head: head of linked list
+ *
+ * @n: number to be added
+ *
+ * Return: void
+ */
 void op_add(stack_t **head, const int n)
 {
 	(*head)->next->n += (*head)->n;
@@ -7,8 +16,6 @@ void op_add(stack_t **head, const int n)
 	if (n == 0)
 		return;
 }
-
-
 /**
  * free_all - free doubly linked list
  *

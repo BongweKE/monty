@@ -33,9 +33,6 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
-
-
-
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -105,7 +102,7 @@ char *_strtok(char *s, char d);
 /* error checker funcs */
 void haserror(stack_t *head, char *commands[], int i);
 
-void (*get_checker(char *s))(stack_t *stack, char *commands[], int i, char *buf);
+void (*get_checker(char *s)) (stack_t *stack, char *commands[], int i, char *buf);
 
 void check_add(stack_t *head, char *commands[], int i, char *buf);
 
@@ -121,7 +118,7 @@ void check_push(stack_t *head, char *commands[], int i, char *buf);
 
 
 /* error checking for main */
-void read_error(char* buf, char *filename, int fd);
+void read_error(char *buf, char *filename, int fd);
 
 void buf_error(int fd, char *buf);
 

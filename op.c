@@ -48,7 +48,7 @@ void op_push(stack_t **head, const int n)
 	if (new == NULL)
 	{
 		fprintf(stderr,
-			"Error: malloc failed\n"); 
+				"Error: malloc failed\n");
 		free(new);
 		exit(EXIT_FAILURE);
 	}
@@ -59,7 +59,6 @@ void op_push(stack_t **head, const int n)
 		(*head)->prev = new;
 
 	*head = new;
-	return;
 }
 
 /**
@@ -86,19 +85,19 @@ void op_pint(stack_t **head, const int n)
 }
 
 /**
- * delete_dnodeint_at_index- delete at node given
+ * op_pop- delete at node given
  *
  * @head: head of node
  *
- * @index: delete node at this index
+ * @n: delete node at this index
  *
  * Return: Void
  */
 void op_pop(stack_t **head, const int n)
 {
-	stack_t /*previous,*/ *copy;
+	stack_t *copy;
 
-        copy = *head;
+	copy = *head;
 	if (*head == NULL)
 	{
 		return;
@@ -109,7 +108,6 @@ void op_pop(stack_t **head, const int n)
 		copy = copy->next;
 		free(*head);
 		*head = copy;
-		/*previous = *head;*/
 		(*head)->prev = NULL;
 		return;
 	}

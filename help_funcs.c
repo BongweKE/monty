@@ -19,16 +19,24 @@ int _atoi(char *string)
 		result = result * 10 + string[i] - '0';
 	return (sign * result);
 }
-
+/**
+ * fillwithNull - fill array of pointers with NULL
+ *
+ * @lines: array
+ *
+ * @m: size of array
+ *
+ * Return: void
+ */
 void fillwithNull(char *lines[], int m)
 {
-        int i = 0;
+	int i = 0;
 
-        while (i < m)
-        {
-                lines[i] = NULL;
-                i++;
-        }
+	while (i < m)
+	{
+		lines[i] = NULL;
+		i++;
+	}
 }
 
 /**
