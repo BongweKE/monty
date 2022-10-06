@@ -34,6 +34,8 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -45,8 +47,22 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	int (*f)(stack_t **stack, const int line_number);
+	void (*f)(stack_t **stack, const int line_number);
 } instruction_t;
+
+/**
+ * struct checker_s - opcode and its error checker
+ * @opcode: the opcode
+ * @f: the function to check errors
+ *
+ * Description: Choose the error checker for
+ * each stack op
+ */
+typedef struct checker_s
+{
+	char *opcode;
+	void (*f)(stack_t *stack, char *commands[], int i, char *buf);
+} checkers_t;
 
 extern stack_t *head;
 
@@ -55,32 +71,64 @@ void space_sep(char **commands, char *line);
 void newline_sep(char **lines, char *buf);
 
 /** remove double pointers **/
-int op_pall(stack_t **h, const int n);
+void op_pall(stack_t **h, const int n);
 
-int op_push(stack_t **head, const int n);
+void op_push(stack_t **head, const int n);
 
-int op_pint(stack_t **head, const int n); 
+void op_pint(stack_t **head, const int n);
 
-int op_pop(stack_t **head, const int index);
+void op_pop(stack_t **head, const int index);
 
-int op_swap(stack_t **head, const int n);
+void op_swap(stack_t **head, const int n);
 
-int op_add(stack_t **head, const int n);
-
-void *op_add_end(stack_t **head, const int n);
+void op_add(stack_t **head, const int n);
 
 void free_all(stack_t *head);
 
-int (*get_op_func(char *s))(stack_t **, const int);
+void (*get_op_func(char *s))(stack_t **, const int);
 
+/* string funcs */
 int _atoi(char *string);
+
 void fillwithNull(char *lines[], int m);
+
 void _write_to_STDOUT(char *_input);
+
 void _iota(int value, char *numberArray);
+
 int lengthcounter(char *str);
+
 char *itoa(int val, int base);
 
 char *_strtok(char *s, char d);
+
+/* error checker funcs */
 void haserror(stack_t *head, char *commands[], int i);
 
+void (*get_checker(char *s))(stack_t *stack, char *commands[], int i, char *buf);
+
+void check_add(stack_t *head, char *commands[], int i, char *buf);
+
+void check_swap(stack_t *head, char *commands[], int i, char *buf);
+
+void check_pop(stack_t *head, char *commands[], int i, char *buf);
+
+void check_pint(stack_t *head, char *commands[], int i, char *buf);
+
+void check_pall(stack_t *head, char *commands[], int i, char *buf);
+
+void check_push(stack_t *head, char *commands[], int i, char *buf);
+
+
+/* error checking for main */
+void read_error(char* buf, char *filename, int fd);
+
+void buf_error(int fd, char *buf);
+
+void get_fd_error(char *filename, int fd);
+
+void ac_error(void);
+
+/* help_funcs2 */
+int check_commands_1(char *command_1);
 #endif /*  MONTY_H */

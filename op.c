@@ -6,9 +6,9 @@
  * @h: head of double linked list
  * @n: n should always be zero
  *
- * Return: int
+ * Return: Nada
  */
-int op_pall(stack_t **h, const int n)
+void op_pall(stack_t **h, const int n)
 {
 	size_t count = n;
 	stack_t *copy;
@@ -19,15 +19,18 @@ int op_pall(stack_t **h, const int n)
 	while (*h)
 	{
 		value = h[0]->n;
-		
+
 		numberArray = itoa(value, 10);
 		_write_to_STDOUT(numberArray);
 		*h = h[0]->next;
 		count++;
 	}
 	*h = copy;
-	return (0);
+	if (n == 0)
+		return;
 }
+
+
 /**
  * op_push - add node at the beginning
  *
@@ -35,10 +38,9 @@ int op_pall(stack_t **h, const int n)
  *
  * @n: number to be added
  *
- * Return: address of new element or
- * Null on failure
+ * Return: Nada
  */
-int op_push(stack_t **head, const int n)
+void op_push(stack_t **head, const int n)
 {
 	stack_t *new;
 
@@ -57,8 +59,9 @@ int op_push(stack_t **head, const int n)
 		(*head)->prev = new;
 
 	*head = new;
-	return (n);
+	return;
 }
+
 /**
  * op_pint - print head
  *
@@ -66,20 +69,22 @@ int op_push(stack_t **head, const int n)
  *
  * @n: returned num
  *
- * Return: n
+ * Return: void
  */
-int op_pint(stack_t **head, const int n)
+void op_pint(stack_t **head, const int n)
 {
 	char *numberArray;
 	int value;
 
 	if (*head == NULL)
-		return (0);
+		return;
 	value = (*head)->n;
 	numberArray = itoa(value, 10);
 	_write_to_STDOUT(numberArray);
-	return (n);
+	if (n == 0)
+		return;
 }
+
 /**
  * delete_dnodeint_at_index- delete at node given
  *
@@ -87,17 +92,18 @@ int op_pint(stack_t **head, const int n)
  *
  * @index: delete node at this index
  *
- * Return: 1 on sucess and -1 on failure
+ * Return: Void
  */
-int op_pop(stack_t **head, const int n)
+void op_pop(stack_t **head, const int n)
 {
 	stack_t /*previous,*/ *copy;
 
-	/*previous = *head,*/ copy = *head;
+        copy = *head;
 	if (*head == NULL)
 	{
-		return (-1);
+		return;
 	}
+
 	if ((*head)->next != NULL)
 	{
 		copy = copy->next;
@@ -105,22 +111,34 @@ int op_pop(stack_t **head, const int n)
 		*head = copy;
 		/*previous = *head;*/
 		(*head)->prev = NULL;
-		return (1);
+		return;
 	}
 	else
 	{
 		free(copy);
 		*head = NULL;
-		return (1);
+		return;
 	}
-	return (n);
+	if (n == 0)
+		return;
 }
-int op_swap(stack_t **head, const int n)
+
+/**
+ * op_swap - delete at node given
+ *
+ * @head: head of node
+ *
+ * @n:No value
+ *
+ * Return: Void
+ */
+void op_swap(stack_t **head, const int n)
 {
 	int x;
 
 	x = (*head)->n;
 	(*head)->n = (*head)->next->n;
 	(*head)->next->n = x;
-	return (n);
+	if (n == 0)
+		return;
 }

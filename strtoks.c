@@ -2,15 +2,19 @@
 
 void newline_sep(char **lines, char *buf)
 {
-	char **temp, *piece;
-	temp = lines;
-	piece = strtok(buf, "\n");
+	char **temp, *piece, *sep;
 
+	sep = "\n";
+	temp = lines;
+	piece = strtok(buf, sep);
+	if (piece == NULL)
+	        lines[0] = "";
 	while (piece != NULL)
 	{
 		*temp++ = piece;
-		piece = strtok(NULL, "\n");
+		piece = strtok(NULL, sep);
 	}
+
 }
 
 void space_sep(char **commands, char *line)

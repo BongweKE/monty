@@ -1,2 +1,2 @@
-push
+push 7
 pall
