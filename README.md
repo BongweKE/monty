@@ -1,4 +1,4 @@
-![./monty path2/file.m](/Monty.png "Monty Photo")
+![How to run the program](/Monty.png "Monty Photo")
 
 # Monty 💻Interpreter using Stack and Queue in C
 
