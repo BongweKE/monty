@@ -45,8 +45,10 @@ int op_push(stack_t **head, const int n)
 	new = malloc(sizeof(stack_t) * 100);
 	if (new == NULL)
 	{
+		fprintf(stderr,
+			"Error: malloc failed\n"); 
 		free(new);
-		return (1);
+		exit(EXIT_FAILURE);
 	}
 	new->n = n;
 	new->prev = NULL;
@@ -55,7 +57,7 @@ int op_push(stack_t **head, const int n)
 		(*head)->prev = new;
 
 	*head = new;
-	return (0);
+	return (n);
 }
 /**
  * op_pint - print head
@@ -117,11 +119,6 @@ int op_swap(stack_t **head, const int n)
 {
 	int x;
 
-	if (*head == NULL || (*head)->next == NULL)
-	{
-		perror("Error");
-		return (n);
-	}
 	x = (*head)->n;
 	(*head)->n = (*head)->next->n;
 	(*head)->next->n = x;

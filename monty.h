@@ -1,5 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
+/* for isdigit */
+#include <ctype.h>
 /* for strtok */
 #include <string.h>
 /* for exit */
@@ -79,5 +81,6 @@ int lengthcounter(char *str);
 char *itoa(int val, int base);
 
 char *_strtok(char *s, char d);
+void haserror(stack_t *head, char *commands[], int i);
 
 #endif /*  MONTY_H */
