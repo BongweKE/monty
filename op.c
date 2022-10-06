@@ -8,20 +8,15 @@
  *
  * Return: Nada
  */
-void op_pall(stack_t **h, const int n)
+void op_pall(stack_t **h, unsigned int n)
 {
 	size_t count = n;
 	stack_t *copy;
-	int value;
-	char *numberArray;
 
 	copy = *h;
 	while (*h)
 	{
-		value = h[0]->n;
-
-		numberArray = itoa(value, 10);
-		_write_to_STDOUT(numberArray);
+		printf("%d\n", h[0]->n);
 		*h = h[0]->next;
 		count++;
 	}
@@ -40,7 +35,7 @@ void op_pall(stack_t **h, const int n)
  *
  * Return: Nada
  */
-void op_push(stack_t **head, const int n)
+void op_push(stack_t **head, unsigned int n)
 {
 	stack_t *new;
 
@@ -70,7 +65,7 @@ void op_push(stack_t **head, const int n)
  *
  * Return: void
  */
-void op_pint(stack_t **head, const int n)
+void op_pint(stack_t **head, unsigned int n)
 {
 	char *numberArray;
 	int value;
@@ -93,7 +88,7 @@ void op_pint(stack_t **head, const int n)
  *
  * Return: Void
  */
-void op_pop(stack_t **head, const int n)
+void op_pop(stack_t **head, unsigned int n)
 {
 	stack_t *copy;
 
@@ -130,7 +125,7 @@ void op_pop(stack_t **head, const int n)
  *
  * Return: Void
  */
-void op_swap(stack_t **head, const int n)
+void op_swap(stack_t **head, unsigned int n)
 {
 	int x;
 

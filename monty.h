@@ -44,7 +44,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, const int line_number);
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
@@ -68,21 +68,23 @@ void space_sep(char **commands, char *line);
 void newline_sep(char **lines, char *buf);
 
 /** remove double pointers **/
-void op_pall(stack_t **h, const int n);
+void op_pall(stack_t **h, unsigned int n);
 
-void op_push(stack_t **head, const int n);
+void op_push(stack_t **head, unsigned int n);
 
-void op_pint(stack_t **head, const int n);
+void op_pint(stack_t **head, unsigned int n);
 
-void op_pop(stack_t **head, const int index);
+void op_pop(stack_t **head, unsigned int index);
 
-void op_swap(stack_t **head, const int n);
+void op_swap(stack_t **head, unsigned int n);
 
-void op_add(stack_t **head, const int n);
+void op_add(stack_t **head, unsigned int n);
+
+void op_nop(stack_t **head, unsigned int n);
 
 void free_all(stack_t *head);
 
-void (*get_op_func(char *s))(stack_t **, const int);
+void (*get_op_func(char *s))(stack_t **, unsigned int);
 
 /* string funcs */
 int _atoi(char *string);
@@ -102,7 +104,8 @@ char *_strtok(char *s, char d);
 /* error checker funcs */
 void haserror(stack_t *head, char *commands[], int i);
 
-void (*get_checker(char *s)) (stack_t *stack, char *commands[], int i, char *buf);
+void (*get_checker(char *s))(stack_t *stack,
+			     char *commands[], int i, char *buf);
 
 void check_add(stack_t *head, char *commands[], int i, char *buf);
 

@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * check_push - check if improper argument is given to push
  * if so frees buf and exit with EXIT_FAILURE
@@ -13,6 +14,7 @@
  */
 void check_push(stack_t *head, char *commands[], int i, char *buf)
 {
+
 	if (commands[1] == NULL)
 	{
 		fprintf(stderr,
@@ -29,7 +31,6 @@ void check_push(stack_t *head, char *commands[], int i, char *buf)
 		free(buf);
 		exit(EXIT_FAILURE);
 	}
-
 	if (head == NULL)
 		return;
 }
@@ -52,6 +53,7 @@ void check_pall(stack_t *head, char *commands[], int i, char *buf)
 	if (head == NULL || commands == NULL || i == 0 || buf == NULL)
 		return;
 }
+
 /**
  * check_pint - check if head is NUll
  * and prints error message to STDERR

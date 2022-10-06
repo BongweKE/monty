@@ -1,4 +1,19 @@
 #include "monty.h"
+
+/**
+ * op_nop - does nothing
+ * @head: head of linked list
+ *
+ * @n: number
+ *
+ * Return: void
+ */
+void op_nop(stack_t **head, unsigned int n)
+{
+	if (head == NULL || n == 0)
+		return;
+}
+
 /**
  * op_add - add first function with next
  * saves result on next node and pops first
@@ -9,7 +24,7 @@
  *
  * Return: void
  */
-void op_add(stack_t **head, const int n)
+void op_add(stack_t **head, unsigned int n)
 {
 	(*head)->next->n += (*head)->n;
 	op_pop(head, 0);

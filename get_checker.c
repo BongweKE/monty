@@ -16,7 +16,7 @@ void (*get_checker(char *s))(stack_t *, char **, int, char *)
 		{"pop", check_pop},
 		{"swap", check_swap},
 		{"add", check_add},
-		{"nop", NULL},
+		{"nop", check_pall},
 		{NULL, NULL}
 	};
 

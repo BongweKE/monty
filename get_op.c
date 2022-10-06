@@ -7,7 +7,7 @@
  *
  * Return: pointer to actionable function
  */
-void (*get_op_func(char *s))(stack_t **, const int)
+void (*get_op_func(char *s))(stack_t **, unsigned int)
 {
 	instruction_t ops[] = {
 		{"push", op_push},
@@ -16,7 +16,7 @@ void (*get_op_func(char *s))(stack_t **, const int)
 		{"pop", op_pop},
 		{"swap", op_swap},
 		{"add", op_add},
-		{"nop", NULL},
+		{"nop", op_nop},
 		{NULL, NULL}
 	};
 	int i;
