@@ -18,6 +18,13 @@ void (*get_checker(char *s, int m))(stack_t *, char **, int)
 		{"swap", check_swap},
 		{"add", check_add},
 		{"nop", check_pall},
+		{"sub", check_sub},
+		{"div", check_div},
+		{"mul", check_mul},
+		{"mod", check_mod},
+		{"pchar", check_pchar},
+		{"pstr", check_pall},
+		{"#", check_pall},
 		{NULL, NULL}
 	};
 
@@ -33,7 +40,7 @@ void (*get_checker(char *s, int m))(stack_t *, char **, int)
 		j++;
 	}
 	fprintf(stderr,
-		"L%d: unknown instruction %s\n",
-		m, s);
+			"L%d: unknown instruction %s\n",
+			m, s);
 	exit(EXIT_FAILURE);
 }

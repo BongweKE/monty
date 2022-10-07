@@ -82,6 +82,18 @@ void op_add(stack_t **head, unsigned int n);
 
 void op_nop(stack_t **head, unsigned int n);
 
+void op_sub(stack_t **head, unsigned int n);
+
+void op_div(stack_t **head, unsigned int n);
+
+void op_mul(stack_t **head, unsigned int n);
+
+void op_mod(stack_t **head, unsigned int n);
+
+void op_pchar(stack_t **head, unsigned int n);
+
+void op_pstr(stack_t **head, unsigned int n);
+
 void free_all(stack_t *head);
 
 void (*get_op_func(char *s))(stack_t **, unsigned int);
@@ -119,6 +131,17 @@ void check_pall(stack_t *head, char *commands[], int i);
 
 void check_push(stack_t *head, char *commands[], int i);
 
+void check_sub(stack_t *head, char *commands[], int i);
+
+void check_div(stack_t *head, char *commands[], int i);
+
+void check_mul(stack_t *head, char *commands[], int i);
+
+void check_mod(stack_t *head, char *commands[], int i);
+
+void check_pchar(stack_t *head, char *commands[], int i);
+
+void check_pstr(stack_t *head, char *commands[], int i);
 
 /* error checking for main */
 void read_error(char *filename, FILE *fp);
