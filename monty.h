@@ -58,7 +58,7 @@ typedef struct instruction_s
 typedef struct checker_s
 {
 	char *opcode;
-	void (*f)(stack_t *stack, char *commands[], int i, char *buf);
+	void (*f)(stack_t *stack, char *commands[], int i);
 } checkers_t;
 
 extern stack_t *head;
@@ -105,27 +105,27 @@ char *_strtok(char *s, char d);
 void haserror(stack_t *head, char *commands[], int i);
 
 void (*get_checker(char *s, int j))(stack_t *stack,
-			     char *commands[], int i, char *buf);
+			     char *commands[], int i);
 
-void check_add(stack_t *head, char *commands[], int i, char *buf);
+void check_add(stack_t *head, char *commands[], int i);
 
-void check_swap(stack_t *head, char *commands[], int i, char *buf);
+void check_swap(stack_t *head, char *commands[], int i);
 
-void check_pop(stack_t *head, char *commands[], int i, char *buf);
+void check_pop(stack_t *head, char *commands[], int i);
 
-void check_pint(stack_t *head, char *commands[], int i, char *buf);
+void check_pint(stack_t *head, char *commands[], int i);
 
-void check_pall(stack_t *head, char *commands[], int i, char *buf);
+void check_pall(stack_t *head, char *commands[], int i);
 
-void check_push(stack_t *head, char *commands[], int i, char *buf);
+void check_push(stack_t *head, char *commands[], int i);
 
 
 /* error checking for main */
-void read_error(char *buf, char *filename, int fd);
+void read_error(char *filename, FILE *fp);
 
-void buf_error(int fd, char *buf);
+void buf_error(FILE *fp);
 
-void get_fd_error(char *filename, int fd);
+void get_fd_error(char *filename);
 
 void ac_error(void);
 

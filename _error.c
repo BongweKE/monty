@@ -10,9 +10,8 @@
  *
  * @i: number to be  added to the new node
  *
- * @buf: buff created for read
  */
-void check_push(stack_t *head, char *commands[], int i, char *buf)
+void check_push(stack_t *head, char *commands[], int i)
 {
 
 	if (commands[1] == NULL)
@@ -20,7 +19,6 @@ void check_push(stack_t *head, char *commands[], int i, char *buf)
 		fprintf(stderr,
 				"L%d: usage: push integer\n", i);
 		free_all(head);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	else if ((atoi(commands[1]) == 0) && (strcmp(commands[1], "0") != 0))
@@ -28,7 +26,6 @@ void check_push(stack_t *head, char *commands[], int i, char *buf)
 		fprintf(stderr,
 				"L%d: usage: push integer\n", i);
 		free_all(head);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	if (head == NULL)
@@ -44,13 +41,11 @@ void check_push(stack_t *head, char *commands[], int i, char *buf)
  * @i: does nothing kept to keep same format
  * for function pointer
  *
- * @buf: storage from read system call
- *
  * Return: void
  */
-void check_pall(stack_t *head, char *commands[], int i, char *buf)
+void check_pall(stack_t *head, char *commands[], int i)
 {
-	if (head == NULL || commands == NULL || i == 0 || buf == NULL)
+	if (head == NULL || commands == NULL || i == 0)
 		return;
 }
 
@@ -64,22 +59,20 @@ void check_pall(stack_t *head, char *commands[], int i, char *buf)
  *
  * @i: int will be 0
  *
- * @buf: storage from read system call
- *
  * Return: void
  */
-void check_pint(stack_t *head, char *commands[], int i, char *buf)
+void check_pint(stack_t *head, char *commands[], int i)
 {
 	if (head == NULL)
 	{
 		fprintf(stderr,
 				"L%d: can't pint, stack empty\n", i);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	if (commands == NULL)
 		return;
 }
+
 /**
  * check_pop - check if head is NULL
  * and prints to STDERR
@@ -90,23 +83,21 @@ void check_pint(stack_t *head, char *commands[], int i, char *buf)
  *
  * @i: included for consistency
  *
- * @buf: storage from read system call
- *
  * Return: void
  */
-void check_pop(stack_t *head, char *commands[], int i, char *buf)
+void check_pop(stack_t *head, char *commands[], int i)
 {
 	if (head == NULL)
 	{
 		fprintf(stderr,
 				"L%d: can't pop an empty stack\n", i);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
 
 	if (commands == NULL)
 		return;
 }
+
 /**
  * check_swap - check if op_swap gets at least a linked list
  * That has minumun two nodes
@@ -117,21 +108,17 @@ void check_pop(stack_t *head, char *commands[], int i, char *buf)
  *
  * @i: used for consistancy
  *
- * @buf: storage from read system call
- *
  * Return: void
  */
-void check_swap(stack_t *head, char *commands[], int i, char *buf)
+void check_swap(stack_t *head, char *commands[], int i)
 {
 	if ((head == NULL) || ((head)->next == NULL))
 	{
 		fprintf(stderr,
 				"L%d: can't swap, stack too short\n", i);
 		free_all(head);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	if (commands == 0)
 		return;
 }
-

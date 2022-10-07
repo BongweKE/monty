@@ -11,41 +11,41 @@
  */
 int main(int ac, char **av)
 {
-	char *filename, *buf, *lines[100], *commands[2];
-	int fd, i, l, n, bytz;
+	char *filename, line[256], *commands[2];
+	int l, n;
 	stack_t *head = NULL;
+	FILE *fp;
 
-	fillwithNull(lines, 100);
 	if (ac != 2)
 		ac_error();
 	filename = av[1];
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		get_fd_error(filename, fd);
-	buf = malloc(sizeof(char) * 1024);
-	if (buf == NULL)
-		buf_error(fd, buf);
-	bytz = read(fd, buf, 1024);
-	if (bytz == (-1))
-		read_error(buf, filename, fd);
-	else
-		close(fd);
-	newline_sep(lines, buf);
-	i = 0;
+
+	fp  = fopen(filename, "r");
+	if (fp == NULL)
+		get_fd_error(filename);
+
+	l = 1;
 	fillwithNull(commands, 2);
-	while (lines[i] != NULL)
+
+	while (fgets(line, sizeof(line), fp) != NULL)
 	{
-		l = i + 1;
-		space_sep(commands, lines[i]);
-		get_checker(commands[0], l)(head, commands, l, buf);
-		n = check_commands_1(commands[1]);
-		printf("%s\n", commands[0]);
-		get_op_func(commands[0])(&head, n);
 		commands[0] = NULL;
 		commands[1] = NULL;
-		i++;
+		space_sep(commands, line);
+		line[strcspn(line, "\r\n")] = '\0';
+		if (line[0] == '\0')
+		{
+			l++;
+			continue;
+		}
+		get_checker(commands[0], l)(head, commands, l);
+		n = check_commands_1(commands[1]);
+		get_op_func(commands[0])(&head, n);
+		l++;
 	}
-	free(buf);
-	free_all(head);
+	fclose(fp);
+
+	if (head != NULL)
+		free_all(head);
 	return (0);
 }

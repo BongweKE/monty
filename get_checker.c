@@ -5,9 +5,10 @@
  * for each stack operation
  * @s: the name of the potential stack operation
  *
+ * @m: line number in the bytecode file
  * Return: Pointer to an actionable error checker or NULL
  */
-void (*get_checker(char *s, int m))(stack_t *, char **, int, char *)
+void (*get_checker(char *s, int m))(stack_t *, char **, int)
 {
 	checkers_t checkers[] = {
 		{"push", check_push},
