@@ -104,7 +104,7 @@ char *_strtok(char *s, char d);
 /* error checker funcs */
 void haserror(stack_t *head, char *commands[], int i);
 
-void (*get_checker(char *s))(stack_t *stack,
+void (*get_checker(char *s, int j))(stack_t *stack,
 			     char *commands[], int i, char *buf);
 
 void check_add(stack_t *head, char *commands[], int i, char *buf);

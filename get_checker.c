@@ -7,7 +7,7 @@
  *
  * Return: Pointer to an actionable error checker or NULL
  */
-void (*get_checker(char *s))(stack_t *, char **, int, char *)
+void (*get_checker(char *s, int m))(stack_t *, char **, int, char *)
 {
 	checkers_t checkers[] = {
 		{"push", check_push},
@@ -31,5 +31,8 @@ void (*get_checker(char *s))(stack_t *, char **, int, char *)
 		}
 		j++;
 	}
-	return (NULL);
+	fprintf(stderr,
+		"L%d: unknown instruction %s\n",
+		m, s);
+	exit(EXIT_FAILURE);
 }
