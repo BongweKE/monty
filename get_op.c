@@ -39,6 +39,12 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 		}
 		i++;
 	}
+
+	if (s != NULL)
+	{
+		if (s[0] == '#')
+			return (op_nop);
+	}
 	/**
 	 * anything that reaches here has a problem somewhere
 	 * it could be NULL of have a wrong operator

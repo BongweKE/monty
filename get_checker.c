@@ -39,8 +39,10 @@ void (*get_checker(char *s, int m))(stack_t *, char **, int)
 		}
 		j++;
 	}
+	if ((s != NULL) && (s[0] == '#'))
+		return (check_pall);
 	fprintf(stderr,
-			"L%d: unknown instruction %s\n",
-			m, s);
+		"L%d: unknown instruction %s\n",
+		m, s);
 	exit(EXIT_FAILURE);
 }

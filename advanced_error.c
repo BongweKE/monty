@@ -134,7 +134,7 @@ void check_pchar(stack_t *head, char *commands[], int i)
 		free_all(head);
 		exit(EXIT_FAILURE);
 	}
-	if ((head->n > 255)  || (head->n < 0))
+	if ((head->n > 127)  || (head->n < 0))
 	{
 		fprintf(stderr,
 				"L%d: can't pchar, value out of range\n", i);

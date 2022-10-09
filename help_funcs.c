@@ -95,11 +95,3 @@ int lengthcounter(char *str)
 	}
 	return (i);
 }
-
-
-
-
-
-
-
-
