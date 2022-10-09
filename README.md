@@ -102,3 +102,4 @@ Quite simple, right?
 - Automate measurment size of file in case we have long bytecode files instead
 of using random sizes
 - Correct and follow Valgrind errors in `strtok`
+- Create more functions to handle different operations
