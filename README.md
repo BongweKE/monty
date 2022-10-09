@@ -69,12 +69,12 @@ set of instructions in `instruction_t` format as follows
 ```
 /**
  * struct instruction_s - opcode and its function
-  * @opcode: the opcode
-   * @f: function to handle the opcode
-    *
-     * Description: opcode and its function
-      * for stack, queues, LIFO, FIFO
-       */
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
+ */
        typedef struct instruction_s
        {
                char *opcode;
